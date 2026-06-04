@@ -1,34 +1,46 @@
 # Text Search — Take‑Home Project
 
-This is a client-only React + TypeScript implementation of the "Text Search" assignment.
+This is my implementation of the "Text Search" take‑home assignment, built with React, TypeScript and Vite.
+
+Overview
+- A client-only single-page app that searches an in-memory list of articles.
+- Matches are highlighted in the title and excerpt and results are sorted by simple relevance.
 
 Features
 - Case-insensitive search across article title & body
 - Highlighting of matched terms in title and excerpt
 - Relevance sorting (title matches weighted higher)
 - Debounced search input with clear button
-- Unit tests for search logic
+- Unit tests for core search logic
 
-Getting started
+Getting started (what I ran locally)
 1. Install dependencies
+
    npm install
 
-2. Run dev server
+2. Start the dev server
+
    npm run dev
 
+   The app runs on http://localhost:5173 by default.
+
 3. Run tests
+
    npm run test
 
 Build
-- npm run build
-- npm run preview to preview the production build
+
+- Build for production: `npm run build`
+- Preview production build locally: `npm run preview`
 
 Design notes
-- Articles are stored in `src/data/articles.ts` per the assignment instructions (no backend needed).
-- Highlighting is implemented using a React-safe splitter (no dangerouslySetInnerHTML).
-- The search logic is in `src/utils/search.ts` and can be extended for phrase matching or fuzzy search.
+- Articles are stored in `src/data/articles.ts` as an array of article objects (no backend required).
+- Highlighting is implemented safely by splitting text and wrapping matches in `<mark>` elements (no dangerous HTML insertion).
+- Search logic (tokenization, regex-building, match counting, and snippet generation) lives in `src/utils/search.ts` and is covered by unit tests in `src/__tests__/`.
 
-How to submit
-- Push the repository to GitHub and paste the repository URL into the assessment "Submit your answer" input box.
+Notes
+- This project is intentionally lightweight and focused on demonstrating a clear, testable search and highlight implementation.
+- If you want improvements, I can add more articles, refine the matching (phrase-exact or fuzzy matching), or add a deployed demo.
 
-If you want me to push these files into an existing repository for you, give me the owner/repo (it must already exist) and confirm and I’ll commit them in one push.
+--
+Implemented by mhmddaoud01
