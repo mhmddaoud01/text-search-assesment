@@ -1,46 +1,38 @@
 # Text Search — Take‑Home Project
 
-This is my implementation of the "Text Search" take‑home assignment, built with React, TypeScript and Vite.
+A compact, client-only React + TypeScript application that implements a text search over an in-memory list of articles. Matches are highlighted and results are ordered by simple relevance.
 
-Overview
-- A client-only single-page app that searches an in-memory list of articles.
-- Matches are highlighted in the title and excerpt and results are sorted by simple relevance.
+Tech
+- React, TypeScript, Vite
 
-Features
-- Case-insensitive search across article title & body
-- Highlighting of matched terms in title and excerpt
+Key features
+- Case-insensitive search across title and body
+- All matches highlighted in title and excerpt
 - Relevance sorting (title matches weighted higher)
-- Debounced search input with clear button
-- Unit tests for core search logic
+- Debounced search input and clear control
+- Unit tests for core search utilities
 
-Getting started (what I ran locally)
+Run locally
 1. Install dependencies
 
    npm install
 
-2. Start the dev server
+2. Start dev server
 
    npm run dev
 
-   The app runs on http://localhost:5173 by default.
+   Open http://localhost:5173
 
-3. Run tests
+Tests
 
-   npm run test
+- Run unit tests: `npm run test`
 
 Build
+- Build: `npm run build`
+- Preview build locally: `npm run preview`
 
-- Build for production: `npm run build`
-- Preview production build locally: `npm run preview`
+Implementation notes
+- Articles are stored in `src/data/articles.ts`.
+- Search and highlighting logic is implemented in `src/utils/search.ts` and `src/components/Highlight.tsx`.
 
-Design notes
-- Articles are stored in `src/data/articles.ts` as an array of article objects (no backend required).
-- Highlighting is implemented safely by splitting text and wrapping matches in `<mark>` elements (no dangerous HTML insertion).
-- Search logic (tokenization, regex-building, match counting, and snippet generation) lives in `src/utils/search.ts` and is covered by unit tests in `src/__tests__/`.
-
-Notes
-- This project is intentionally lightweight and focused on demonstrating a clear, testable search and highlight implementation.
-- If you want improvements, I can add more articles, refine the matching (phrase-exact or fuzzy matching), or add a deployed demo.
-
---
 Implemented by mhmddaoud01
